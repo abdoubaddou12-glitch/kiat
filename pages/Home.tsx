@@ -1,97 +1,100 @@
 
 import React, { useState } from 'react';
-import { POSTS, CATEGORIES } from '../constants';
+import { POSTS } from '../constants';
 import PostCard from '../components/PostCard';
-import { Sparkles, TrendingUp } from 'lucide-react';
+import { Sparkles, TrendingUp, Zap, Filter } from 'lucide-react';
 
 const Home: React.FC = () => {
-  const [selectedCategory, setSelectedCategory] = useState<string>('الكل');
-
-  const filteredPosts = selectedCategory === 'الكل' 
-    ? POSTS 
-    : POSTS.filter(p => p.category === (selectedCategory === 'تكنولوجيا' ? 'Technology' : selectedCategory === 'ذكاء اصطناعي' ? 'Artificial Intelligence' : selectedCategory === 'تصميم' ? 'Design' : 'Lifestyle'));
-
-  const featuredPost = POSTS[0];
+  const [activeTab, setActiveTab] = useState('الكل');
+  
+  const categories = ['الكل', 'Technology', 'Artificial Intelligence', 'Design'];
 
   return (
-    <div className="space-y-16 animate-in fade-in duration-700">
+    <div className="space-y-20">
       {/* Hero Section */}
-      <section className="relative rounded-3xl overflow-hidden bg-slate-900 text-white p-8 md:p-16 text-right">
-        <div className="absolute top-0 left-0 w-1/2 h-full opacity-30 pointer-events-none">
-          <img src={featuredPost.coverImage} alt="" className="w-full h-full object-cover grayscale blur-sm" />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-900 to-transparent"></div>
-        </div>
-
-        <div className="relative z-10 max-w-2xl mr-auto md:mr-0">
-          <div className="flex items-center gap-2 mb-6 justify-start md:justify-end">
-            <span className="flex items-center gap-1.5 px-3 py-1 bg-indigo-500/20 text-indigo-300 text-xs font-bold uppercase tracking-wider rounded-full border border-indigo-500/30">
-              <TrendingUp size={14} /> قصة مختارة
-            </span>
+      <section className="relative py-12 md:py-24 hero-gradient rounded-[40px] overflow-hidden">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5 dark:invert"></div>
+        
+        <div className="relative z-10 text-center max-w-4xl mx-auto px-6">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 text-xs font-bold mb-8 animate-bounce">
+            <Sparkles size={14} /> أكثر من 50,000 قارئ شهرياً
           </div>
-          <h1 className="text-4xl md:text-6xl font-black mb-6 leading-tight tracking-tight">
-            اكتشف مستقبل <span className="text-indigo-400">الابتكار</span> والذكاء الاصطناعي مع عبدو ويب.
+          <h1 className="text-5xl md:text-7xl font-black mb-8 leading-[1.1] tracking-tight">
+            نكتب <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">مستقبل التقنية</span> بكل شغف.
           </h1>
-          <p className="text-slate-400 text-lg md:text-xl mb-8 leading-relaxed">
-            رؤى تقنية، مقالات متعمقة، وآراء خبراء من أجل المحترف العصري، نأخذك في رحلة نحو عالم المستقبل.
+          <p className="text-lg md:text-xl text-slate-500 dark:text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed">
+            مدونة متخصصة في سبر أغوار العالم الرقمي، نقدم لك رؤى عميقة ودروساً احترافية تساعدك على التميز في مسيرتك المهنية.
           </p>
-          <div className="flex flex-wrap gap-4 justify-start md:justify-end">
-            <button className="bg-indigo-600 hover:bg-indigo-700 px-8 py-3 rounded-xl font-bold transition-all transform hover:scale-105">
-              اقرأ آخر المقالات
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button className="bg-indigo-600 text-white px-10 py-4 rounded-2xl font-bold shadow-2xl shadow-indigo-500/30 hover:scale-105 transition-all">
+              ابدأ القراءة
             </button>
-            <button className="bg-slate-800 hover:bg-slate-700 px-8 py-3 rounded-xl font-bold transition-all">
-              تصفح الأقسام
+            <button className="bg-white dark:bg-slate-800 px-10 py-4 rounded-2xl font-bold border border-slate-200 dark:border-slate-700 hover:bg-slate-50 transition-all">
+              تعرف علينا
             </button>
           </div>
         </div>
       </section>
 
-      {/* Category Filter */}
-      <section>
-        <div className="flex items-center gap-3 mb-8">
-          <Sparkles className="text-indigo-500" />
-          <h2 className="text-2xl font-bold">استكشف المواضيع</h2>
+      {/* Featured Header */}
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+        <div>
+          <h2 className="text-3xl font-black mb-4 flex items-center gap-3">
+            <TrendingUp className="text-indigo-600" /> آخر التحديثات
+          </h2>
+          <p className="opacity-60 text-sm">اكتشف أحدث المقالات التي تمت إضافتها مؤخراً</p>
         </div>
         
-        <div className="flex flex-wrap gap-3">
-          {['الكل', 'تكنولوجيا', 'ذكاء اصطناعي', 'تصميم', 'الأعمال'].map(catName => (
-            <button 
-              key={catName}
-              onClick={() => setSelectedCategory(catName)}
-              className={`px-6 py-2 rounded-full text-sm font-semibold transition-all ${
-                selectedCategory === catName 
-                  ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-200 dark:shadow-none' 
-                  : 'bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-indigo-500'
+        <div className="flex items-center gap-2 overflow-x-auto pb-2 sm:pb-0 scrollbar-hide">
+          <Filter size={18} className="text-slate-400 ml-2" />
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setActiveTab(cat)}
+              className={`whitespace-nowrap px-5 py-2 rounded-xl text-sm font-bold transition-all ${
+                activeTab === cat 
+                  ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-900' 
+                  : 'bg-slate-100 dark:bg-slate-800/50 hover:bg-slate-200'
               }`}
             >
-              {catName}
+              {cat === 'Technology' ? 'تقنية' : cat === 'Artificial Intelligence' ? 'ذكاء اصطناعي' : cat === 'Design' ? 'تصميم' : 'الكل'}
             </button>
           ))}
         </div>
-      </section>
+      </div>
 
-      {/* Blog Grid */}
-      <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {filteredPosts.map(post => (
-          <PostCard key={post.id} post={post} />
+      {/* Posts Grid */}
+      <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        {POSTS.filter(p => activeTab === 'الكل' || p.category === activeTab).map((post, idx) => (
+          <div key={post.id} className="animate-in fade-in slide-in-from-bottom-10" style={{ animationDelay: `${idx * 100}ms` }}>
+            <PostCard post={post} />
+          </div>
         ))}
       </section>
 
-      {/* Newsletter Section */}
-      <section className="bg-indigo-50 dark:bg-indigo-900/10 rounded-3xl p-8 md:p-12 text-center border border-indigo-100 dark:border-indigo-900/30">
-        <h2 className="text-3xl font-bold mb-4">لا تفوت أي تحديث</h2>
-        <p className="text-slate-600 dark:text-slate-400 mb-8 max-w-xl mx-auto">
-          انضم إلى أكثر من 50,000 مشترك واحصل على أحدث المقالات، موارد التصميم، ورؤى التكنولوجيا مباشرة في بريدك الإلكتروني كل أسبوع.
-        </p>
-        <form className="flex flex-col sm:flex-row-reverse gap-3 max-w-md mx-auto" onSubmit={(e) => e.preventDefault()}>
-          <input 
-            type="email" 
-            placeholder="أدخل بريدك الإلكتروني" 
-            className="flex-grow px-6 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all text-right"
-          />
-          <button className="bg-indigo-600 text-white px-8 py-3 rounded-xl font-bold hover:bg-indigo-700 transition-all">
-            اشترك
-          </button>
-        </form>
+      {/* Newsletter Widget */}
+      <section className="bg-indigo-600 rounded-[40px] p-10 md:p-20 text-white relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -mr-20 -mt-20 blur-3xl"></div>
+        <div className="absolute bottom-0 left-0 w-64 h-64 bg-purple-500/20 rounded-full -ml-20 -mb-20 blur-3xl"></div>
+        
+        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 className="text-4xl font-bold mb-6">ابقَ على اطلاع دائم.</h2>
+            <p className="text-indigo-100 text-lg leading-relaxed opacity-90">
+              انضم إلى قائمة بريدية حصرية تضم أكثر من 20 ألف مطور ومصمم. نرسل زبدة القول في التقنية مرة واحدة أسبوعياً.
+            </p>
+          </div>
+          <form className="flex gap-3" onSubmit={e => e.preventDefault()}>
+            <input 
+              type="email" 
+              placeholder="بريدك الإلكتروني"
+              className="flex-grow bg-white/10 border border-white/20 rounded-2xl px-6 py-4 focus:outline-none focus:bg-white/20 transition-all placeholder:text-indigo-200"
+            />
+            <button className="bg-white text-indigo-600 px-8 py-4 rounded-2xl font-bold hover:bg-indigo-50 transition-all flex items-center gap-2">
+              <Zap size={18} fill="currentColor" /> اشتراك
+            </button>
+          </form>
+        </div>
       </section>
     </div>
   );
