@@ -13,51 +13,54 @@ const PostCard: React.FC<PostCardProps> = ({ post }) => {
 
   return (
     <article 
-      className={`group relative flex flex-col h-full bg-white dark:bg-slate-800/40 rounded-[2rem] overflow-hidden border border-slate-100 dark:border-slate-800 hover:shadow-2xl hover:shadow-indigo-500/10 transition-all duration-500 ${isArabic ? 'text-right' : 'text-left'}`}
+      className={`group relative flex flex-col h-full bg-white dark:bg-slate-800/50 rounded-[2.5rem] overflow-hidden card-shadow border border-white/20 hover:-translate-y-3 transition-all duration-500 ${isArabic ? 'text-right' : 'text-left'}`}
       dir={isArabic ? 'rtl' : 'ltr'}
     >
-      <div className="relative h-64 overflow-hidden">
+      <div className="relative h-72 overflow-hidden">
         <Link to={`/post/${post.id}`}>
           <img 
             src={post.coverImage} 
             alt={post.title}
-            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
           />
-          <div className="absolute inset-0 post-card-gradient opacity-60 group-hover:opacity-80 transition-opacity"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
         </Link>
-        <div className="absolute top-4 right-4">
-          <span className="px-4 py-1.5 bg-white/90 dark:bg-slate-900/90 backdrop-blur shadow-sm rounded-full text-[10px] font-black uppercase tracking-widest text-indigo-600">
+        <div className="absolute top-6 right-6">
+          <span className="px-5 py-2 bg-white/90 dark:bg-slate-900/90 backdrop-blur rounded-2xl text-[11px] font-black uppercase tracking-tighter text-indigo-600 shadow-xl">
             {post.category}
           </span>
         </div>
       </div>
       
-      <div className="p-8 flex flex-col flex-grow relative">
-        <div className="flex items-center gap-4 mb-4 opacity-50 text-[10px] font-bold">
-          <span className="flex items-center gap-1.5 uppercase tracking-wider"><Calendar size={12} /> {post.date}</span>
-          <span className="flex items-center gap-1.5 uppercase tracking-wider"><Clock size={12} /> {post.readTime}</span>
+      <div className="p-10 flex flex-col flex-grow">
+        <div className="flex items-center gap-5 mb-6 text-[11px] font-black opacity-40 uppercase tracking-widest">
+          <span className="flex items-center gap-2"><Calendar size={14} /> {post.date}</span>
+          <span className="flex items-center gap-2"><Clock size={14} /> {post.readTime}</span>
         </div>
 
         <Link to={`/post/${post.id}`}>
-          <h3 className="text-xl font-bold mb-4 group-hover:text-indigo-600 transition-colors leading-[1.4]">
+          <h3 className="text-2xl font-black mb-6 group-hover:text-indigo-600 transition-colors leading-[1.3] tracking-tight">
             {post.title}
           </h3>
         </Link>
         
-        <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-8 line-clamp-3">
+        <p className="text-slate-500 dark:text-slate-400 text-lg leading-relaxed mb-10 line-clamp-3 font-medium opacity-80">
           {post.excerpt}
         </p>
 
-        <div className="mt-auto pt-6 border-t border-slate-50 dark:border-slate-700/50 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <img src={post.author.avatar} className="w-8 h-8 rounded-full border border-white shadow-sm" alt={post.author.name} />
-            <span className="text-xs font-bold opacity-70">{post.author.name}</span>
+        <div className="mt-auto pt-8 border-t border-slate-100 dark:border-slate-700/50 flex items-center justify-between">
+          <div className="flex items-center gap-4">
+            <div className="relative">
+              <img src={post.author.avatar} className="w-10 h-10 rounded-full border-2 border-white dark:border-slate-800" alt={post.author.name} />
+              <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-green-500 border-2 border-white dark:border-slate-800 rounded-full"></div>
+            </div>
+            <span className="text-sm font-black opacity-70">{post.author.name}</span>
           </div>
           <Link 
             to={`/post/${post.id}`} 
-            className="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center group-hover:bg-indigo-600 group-hover:text-white transition-all shadow-sm"
+            className="w-12 h-12 rounded-2xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center group-hover:bg-indigo-600 group-hover:text-white group-hover:rotate-12 transition-all shadow-sm"
           >
-            <ArrowUpRight size={18} />
+            <ArrowUpRight size={22} />
           </Link>
         </div>
       </div>
