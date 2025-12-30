@@ -2,97 +2,103 @@
 import { Post, Category } from './types';
 
 export const CATEGORIES: Category[] = [
-  { id: '1', name: 'Technology', slug: 'tech', color: 'blue' },
-  { id: '2', name: 'Artificial Intelligence', slug: 'ai', color: 'purple' },
-  { id: '3', name: 'Design', slug: 'design', color: 'pink' },
-  { id: '4', name: 'Business', slug: 'business', color: 'emerald' },
-  { id: '5', name: 'Lifestyle', slug: 'lifestyle', color: 'orange' },
+  { id: '1', name: 'أجهزة ذكية', slug: 'tech', color: 'blue' },
+  { id: '2', name: 'موضة وأزياء', slug: 'fashion', color: 'purple' },
+  { id: '3', name: 'أدوات منزلية', slug: 'home', color: 'pink' },
+  { id: '4', name: 'جمال وعناية', slug: 'beauty', color: 'emerald' },
 ];
 
 export const POSTS: Post[] = [
   {
     id: '1',
-    title: 'The Future of AI in Modern Software Development',
-    excerpt: 'Explore how large language models and generative AI are reshaping the way we write code and build applications.',
+    title: 'سماعات بلوتوث Pro Max إلغاء الضوضاء - عرض تيمو الحصري',
+    excerpt: 'استمتع بنقاء صوت استثنائي مع أحدث سماعات تيمو بخصم يتجاوز 70% لفترة محدودة جداً.',
     content: `
-# The Revolution of Generative AI
+# سماعات Pro Max اللاسلكية
+تعتبر هذه السماعة الخيار الأفضل لمن يبحث عن جودة الصوت مقابل السعر.
 
-Artificial intelligence is no longer a futuristic concept; it's a present reality that's transforming every industry. In the world of software development, we're seeing a massive shift.
+## لماذا ننصح بها؟
+- **عمر بطارية طويل**: يصل إلى 40 ساعة من التشغيل.
+- **إلغاء الضوضاء**: تقنية ANC المتطورة.
+- **سعر لا يقاوم**: بفضل كوبون الخصم الخاص بنا.
 
-## Key Changes:
-- **Code Assistance**: AI like Copilot is becoming an essential teammate.
-- **Automated Testing**: Writing unit tests is faster than ever.
-- **Architectural Insights**: AI can help map out complex system dependencies.
-
-The key to succeeding in this new era is not to compete with AI, but to master it. Engineers who leverage these tools effectively will be 10x more productive.
-
-### Conclusion
-As we move forward, the "human in the loop" will remain critical for ethical considerations and complex problem-solving that requires nuanced context.
+يمكنك الحصول عليها الآن عبر الرابط أدناه واستخدام الكود المرفق للحصول على خصم إضافي.
     `,
     author: {
-      name: 'Sarah Chen',
-      avatar: 'https://picsum.photos/seed/sarah/100/100',
-      role: 'Principal Engineer'
+      name: 'فريق الصفقات',
+      avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=deals',
+      role: 'محلل عروض'
     },
-    category: 'Artificial Intelligence',
-    date: 'Oct 24, 2023',
-    readTime: '6 min read',
-    coverImage: 'https://picsum.photos/seed/tech/1200/600',
-    tags: ['AI', 'Development', 'Future']
+    category: 'أجهزة ذكية',
+    date: 'مارس 01, 2024',
+    readTime: 'عرض محدود',
+    coverImage: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&q=80&w=800',
+    tags: ['تيمو', 'سماعات', 'تكنولوجيا'],
+    price: '49.00 SAR',
+    originalPrice: '199.00 SAR',
+    discount: '75%',
+    affiliateUrl: 'https://temu.to/m/example',
+    couponCode: 'ABD20',
+    brand: 'Temu'
   },
   {
     id: '2',
-    title: 'مستقبل تطوير الويب في عام 2024',
-    excerpt: 'نظرة متعمقة على أهم التقنيات والاتجاهات التي ستشكل ملامح تطوير الويب في العام القادم.',
+    title: 'ماكينة قهوة احترافية منزلية - توفير أمازون',
+    excerpt: 'ابدأ صباحك بأفضل كوب قهوة مع ماكينة الإسبريسو المتطورة، الآن بسعر مخفض جداً.',
     content: `
-# تطوير الويب في 2024
+# ماكينة قهوة Espresso Master
+هل تحلم بقهوة المقهى في منزلك؟ هذه الماكينة توفر لك ذلك بضغطة زر واحدة.
 
-يشهد عالم الويب تطوراً متسارعاً لا يتوقف. من أطر العمل الجديدة إلى تقنيات التحسين المستمر.
-
-## أبرز التوجهات:
-1. **السرعة الفائقة**: التركيز على مقاييس Core Web Vitals.
-2. **الذكاء الاصطناعي**: دمج ميزات الذكاء الاصطناعي مباشرة في واجهات المستخدم.
-3. **التصميم التفاعلي**: استخدام Framer Motion و GSAP بشكل أوسع.
-
-### الخلاصة
-المطور الناجح هو من يواكب هذه التغيرات بحذر وذكاء، مع التركيز دائماً على تجربة المستخدم النهائية.
+## المميزات:
+1. ضغط 15 بار لكريمة مثالية.
+2. خزان مياه كبير سهل التنظيف.
+3. ضمان لمدة سنتين.
     `,
     author: {
-      name: 'أحمد علي',
-      avatar: 'https://picsum.photos/seed/ahmed/100/100',
-      role: 'مطور واجهات أول'
+      name: 'أحمد وفر',
+      avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=ahmed',
+      role: 'خبير تسوق'
     },
-    category: 'Technology',
-    date: 'نوفمبر 10, 2023',
-    readTime: '5 دقائق للقراءة',
-    coverImage: 'https://picsum.photos/seed/web/1200/600',
-    tags: ['الويب', 'برمجة', '2024']
+    category: 'أدوات منزلية',
+    date: 'مارس 02, 2024',
+    readTime: 'شحن مجاني',
+    coverImage: 'https://images.unsplash.com/photo-1517668808822-9ebb02f2a0e6?auto=format&fit=crop&q=80&w=800',
+    tags: ['أمازون', 'قهوة', 'منزل'],
+    price: '299.00 SAR',
+    originalPrice: '550.00 SAR',
+    discount: '45%',
+    affiliateUrl: 'https://amazon.sa/example',
+    couponCode: 'SAVE10',
+    brand: 'Amazon'
   },
   {
     id: '3',
-    title: 'Mastering Minimalist UI Design',
-    excerpt: 'Less is more. Learn the principles of minimalist design and how it can improve your conversion rates and user satisfaction.',
+    title: 'ساعة ذكية Ultra Series 9 - خصم علي إكسبريس',
+    excerpt: 'الساعة الأكثر طلباً عالمياً بمواصفات جبارة وسعر لا يصدق. مقاومة للماء وتدعم المكالمات.',
     content: `
-# Minimalism in Design
+# ساعة Ultra Smart Watch
+التصميم الأنيق يلتقي مع القوة. تابع صحتك ولياقتك البدنية بكل سهولة.
 
-Minimalism is about focusing on the essentials. It's not just about whitespace; it's about hierarchy and purpose.
-
-## Principles:
-- **Whitespace**: Give your elements room to breathe.
-- **Typography**: Let the text speak for itself.
-- **Color Contrast**: Use color sparingly for impact.
-
-When done right, minimalist design reduces cognitive load and allows users to find what they need faster.
+## المواصفات:
+- شاشة AMOLED ساطعة.
+- مراقبة نبضات القلب والأكسجين.
+- متوافقة مع جميع الهواتف.
     `,
     author: {
-      name: 'Julian Vane',
-      avatar: 'https://picsum.photos/seed/julian/100/100',
-      role: 'UI Designer'
+      name: 'فريق الصفقات',
+      avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=deals2',
+      role: 'محلل عروض'
     },
-    category: 'Design',
-    date: 'Dec 05, 2023',
-    readTime: '4 min read',
-    coverImage: 'https://picsum.photos/seed/design/1200/600',
-    tags: ['Design', 'UI/UX', 'Minimalism']
+    category: 'أجهزة ذكية',
+    date: 'مارس 03, 2024',
+    readTime: 'أكثر مبيعاً',
+    coverImage: 'https://images.unsplash.com/photo-1544117518-30df57809ca1?auto=format&fit=crop&q=80&w=800',
+    tags: ['علي إكسبريس', 'ساعات', 'رياضة'],
+    price: '85.00 SAR',
+    originalPrice: '250.00 SAR',
+    discount: '66%',
+    affiliateUrl: 'https://aliexpress.com/example',
+    couponCode: 'WATCH5',
+    brand: 'AliExpress'
   }
 ];
